@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif !important; /* Fuerza la fuente de Google en todo */
+}
+
+/* Forzar en placeholders */
+::-webkit-input-placeholder { font-family: 'Roboto', sans-serif !important; }
+:-moz-placeholder { font-family: 'Roboto', sans-serif !important; }
+::-moz-placeholder { font-family: 'Roboto', sans-serif !important; }
+:-ms-input-placeholder { font-family: 'Roboto', sans-serif !important; }
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.auth-wrapper { 
+    display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; 
+    background: linear-gradient(-45deg, #4f46e5, #a855f7, #ec4899, #f59e0b);
+    background-size: 400% 400%; animation: gradientBG 15s ease infinite;
+}
+
+html.dark-mode .auth-wrapper {
+    background: linear-gradient(-45deg, #1e1b4b, #4a044e, #4c1d95, #0f172a);
+    background-size: 400% 400%; animation: gradientBG 15s ease infinite;
+}
+
+.auth-container { 
+    background: rgba(255, 255, 255, 0.88); backdrop-filter: blur(15px);
+    padding: 40px; border-radius: 24px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); 
+    width: 100%; max-width: 400px; text-align: center; border: 1px solid rgba(255, 255, 255, 0.4); 
+}
+
+html.dark-mode .auth-container {
+    background: rgba(30, 41, 59, 0.85); border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.auth-container .logo { font-size: 60px; margin-bottom: 5px; line-height: 1; }
+
+.auth-container h2 { 
+    margin: 0 0 5px 0; font-weight: 900; font-size: 26px;
+    background: linear-gradient(to right, #4f46e5, #ec4899);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+html.dark-mode .auth-container h2 { background: linear-gradient(to right, #818cf8, #f472b6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+.auth-container p.sub { color: #64748b; font-size: 14px; margin-bottom: 25px; font-weight: 600; }
+html.dark-mode .auth-container p.sub { color: #94a3b8; }
+
+.control-group { display: flex; flex-direction: column; gap: 6px; text-align: left; margin-bottom: 15px; width: 100%; }
+.control-group label { font-size: 13px; font-weight: 700; color: #475569; text-transform: uppercase; }
+html.dark-mode .control-group label { color: #cbd5e1; }
+
+/* Contenedor relativo para el botón del ojo */
+.password-field-container { position: relative; width: 100%; display: flex; align-items: center; }
+
+input[type="text"], input[type="email"], input[type="password"] { 
+    padding: 12px 15px; border-radius: 12px; border: 2px solid #e2e8f0; 
+    font-size: 14px; background-color: #fff; color: #1e293b; outline: none; 
+    height: 48px; width: 100%; box-sizing: border-box; transition: 0.2s;
+}
+.password-field-container input { padding-right: 45px; } /* Espacio para que el texto no tape el ojo */
+
+html.dark-mode input { background-color: #0f172a; border-color: #334155; color: #f1f5f9; }
+input:focus { border-color: #ec4899; box-shadow: 0 0 0 4px rgba(236, 72, 153, 0.2); }
+
+/* DISEÑO PREMIUM DEL BOTÓN DEL OJO */
+.toggle-password-btn {
+    position: absolute; right: 12px; background: transparent; border: none;
+    font-size: 18px; cursor: pointer; height: 100%; display: flex; align-items: center;
+    color: #64748b; padding: 0; margin: 0; outline: none; z-index: 5;
+}
+.toggle-password-btn:hover { color: #ec4899; transform: scale(1.1); }
+
+.btn-submit { 
+    width: 100%; height: 48px; border-radius: 24px; font-size: 15px; font-weight: 800; border: none; color: white; cursor: pointer;
+    background: linear-gradient(to right, #4f46e5, #ec4899); box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4); transition: 0.2s;
+}
+.btn-submit:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(236, 72, 153, 0.6); }
+
+.auth-link { margin-top: 25px; font-size: 14px; font-weight: 600; color: #1e293b; }
+html.dark-mode .auth-link { color: #f1f5f9; }
+.auth-link a { color: #ec4899; text-decoration: none; font-weight: 800; }
+.auth-link a:hover { text-decoration: underline; }
+html.dark-mode .auth-link a { color: #f472b6; }
+
+.theme-toggle-btn { background: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.4); border-radius: 50%; width: 42px; height: 42px; display: inline-flex; justify-content: center; align-items: center; cursor: pointer; font-size: 18px; color: white; position: absolute; top: 20px; right: 20px; z-index: 100; backdrop-filter: blur(5px); transition: 0.2s;}
+.theme-toggle-btn:hover { background: rgba(255,255,255,0.4); transform: scale(1.05); }
+html.dark-mode .theme-toggle-btn { background: rgba(0,0,0,0.3); border-color: rgba(255,255,255,0.1); }
